@@ -1,0 +1,43 @@
+@import "./../foundation/variable.scss";//変数ファイル
+.header{
+    max-width:1500px;
+    height:100%;
+    margin:0 auto;
+    padding:0 40px;
+    display:flex;
+    color:$font-color-white;
+    justify-content: space-between;
+    .header-menu{
+        display:flex;
+    }
+    .mask{
+        display:none;
+    }
+    .header-humburger{
+        position:relative;
+        top:10px;
+        height:40px;
+        width:40px;
+        cursor:pointer;
+        a{
+            align-items: center;
+        }
+    }
+    @media(min-width:768px){
+        .header-humburger{
+            display:none;
+        }
+    }
+}
+@media(max-width:767px){
+    .open .mask{
+        display:block;
+        height:100%;
+        width:100%;
+        position:fixed;
+        z-index:98;
+    }
+    .header{
+        padding:0 15px;
+    }
+}

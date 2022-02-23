@@ -1,0 +1,11 @@
+@import './../foundation/variable.scss';
+footer{
+    width:100%;
+    padding:50px 20px 30px 20px;
+    background-color:$font-color-white;
+}
+@media(max-width:767px){
+    footer{
+        padding-bottom:50px;
+    }
+}

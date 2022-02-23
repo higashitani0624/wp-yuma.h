@@ -1,0 +1,4 @@
+# mac environment settings
+*.icloud
+.DS_Store
+.bashrce
