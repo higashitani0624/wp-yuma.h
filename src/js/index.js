@@ -4,6 +4,8 @@ var header = require('./modules/header')
 var top = require('./modules/top')
 var pagetop = require('./modules/pagetop')
 
+
+
 //foundation.scss
 import './../scss/foundation/base.scss';
 import './../scss/foundation/mixin.scss';
@@ -19,7 +21,7 @@ import './../scss/layout/l-works.scss';
 import './../scss/layout/l-contact.scss';
 //object.scss
 import './../scss/object/component/c-button.scss';
-import './../scss/object/component/small_title.scss'
+import './../scss/object/component/small_title.scss';
 import './../scss/object/project/p-about.scss';
 import './../scss/object/project/p-footer.scss';
 import './../scss/object/project/p-main.scss';
@@ -29,8 +31,6 @@ import './../scss/object/project/p-skill.scss';
 import './../scss/object/project/p-total-back.scss';
 import './../scss/object/project/p-works.scss';
 import './../scss/object/utility/u-utility.scss';
-
-
 
 
 //humburgermenu

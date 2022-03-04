@@ -452,6 +452,8 @@ var header = __webpack_require__(/*! ./modules/header */ "./wp-content/themes/po
 var top = __webpack_require__(/*! ./modules/top */ "./wp-content/themes/portfolio/src/js/modules/top.js")
 var pagetop = __webpack_require__(/*! ./modules/pagetop */ "./wp-content/themes/portfolio/src/js/modules/pagetop.js")
 
+
+
 //foundation.scss
 ;
 
@@ -466,8 +468,6 @@ var pagetop = __webpack_require__(/*! ./modules/pagetop */ "./wp-content/themes/
 
 
 //object.scss
-
-
 
 
 

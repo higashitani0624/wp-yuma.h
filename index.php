@@ -113,7 +113,9 @@
             </div>
         </div>
         <div class="works-button">
+        <a href="<?php echo home_url();?>/works">
         <button class="button">WORKS一覧</button>
+        </a>
         </div>
     </section>
     <section class="top-bottom">
