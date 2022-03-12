@@ -1,13 +1,8 @@
-<?php
-/**
- * Template Name: alllist */
-?>
 <?php get_header(); ?>
 <main id="pageworks">
-    <div class="pageworks">
+<div class="pageworks">
         <div class="pageworks-post">
-            <h2 class="small-title">WORKS</h2>
-            <p>webアプリ、webデザインの制作実績です</p>
+            <h2 class="small-title"><?php single_cat_title() ?></h2>
         </div>
         <nav>
             <ul>
@@ -25,9 +20,8 @@
 	            'post_type' => 'post',
 	            'post_status' => 'publish'
             );
-            $the_query = new WP_Query($args);
-            if ( $the_query->have_posts() ) :
-	            while ( $the_query->have_posts() ) : $the_query->the_post();
+            if ( have_posts() ) :
+	            while (have_posts() ) : the_post();
         ?>
         <div>
             <a href="<?php the_permalink(); ?>">
@@ -52,7 +46,13 @@
             }
         ?>
         </div>
+        <div class="works-button">
+        <a href="<?php echo home_url();?>/works">
+        <button class="button">WORKS一覧</button>
+        </a>
+        </div>
         <div class="linkhome"><a href="<?php echo home_url(); ?>">HOME</a></div>
     </div>
 </main>
+
 <?php get_footer(); ?>

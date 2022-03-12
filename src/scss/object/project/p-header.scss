@@ -126,15 +126,14 @@
 }
 #breadcrumbs{
     background-color:$main-color;
-    padding-top:95px;
-    padding-bottom:15px;
     letter-spacing: .1rem;
     font-weight:400;
-    .breadcrumbs-container{
+    display:flex;
+    margin: 0 auto;
+    padding: 95px 40px 15px 40px;
+    li{
         font-size:11px;
         max-width: 1500px;
-        margin:0 auto;
-        padding:0 40px;
         a{
             color:$base-color;
         }

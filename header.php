@@ -10,13 +10,6 @@
 
         gtag('config', 'G-43PBYV1V3Z');
     </script>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-MBRCVZ9');</script>
-    <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:url" content="<?php echo esc_url(home_url()); ?>" />
@@ -33,10 +26,6 @@
     <?php wp_head(); ?>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBRCVZ9"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <header>
         <div class="header">
             <div class="header-title">
@@ -57,17 +46,71 @@
         </div>
     </header>
     <!-- パンクズリスト　-->
-    <?php 
-    if ( !is_front_page() && !is_home() ) :
-        echo '<div id="breadcrumbs">';
-        echo '<div itemscope itemtype="https://schema.org/discussionUrl" class="breadcrumbs-container">';
-        $sep = ' ≫ ';
-        echo '<a itemprop="correction" href="'.get_bloginfo('url').'" >HOME</a>';
-        echo '<span itemprop="correction" class="breadcrumbs-delimiter">'.$sep.'</span>';
-        if(is_singular()){
-            echo the_title();
+    <?php
+        $home = '<li><a href="'.get_bloginfo('url').'">トップ</a></li>';
+      
+        // トップページの場合
+        if ( is_front_page() ) {
+      
+        // カテゴリーページの場合
+        } else if ( is_category() ) {
+        echo '<ul id="breadcrumbs">';
+        $cat = get_queried_object();
+        $cat_id = $cat->parent;
+        $cat_list = array();
+        while($cat_id != 0) {
+          $cat = get_category( $cat_id );
+          $cat_link = get_category_link( $cat_id );
+          array_unshift( $cat_list, '<li><a href="'.$cat_link.'">'.$cat->name.'</a></li>' );
+          $cat_id = $cat->parent;
         }
-        echo '</div>';
-        echo '</div>';
-    endif;
+        echo $home;
+        foreach ($cat_list as $value) {
+          echo $value;
+        }
+        the_archive_title('<li>≫', '</li>');
+        echo '</ul>';
+        // アーカイブページの場合
+        } else if ( is_archive() ) {
+        echo '<ul id="breadcrumbs">';
+        echo $home;
+        the_archive_title('<li>', '</li>');
+        echo '</ul>';
+        // 投稿ページの場合
+        } else if ( is_single() ) {
+            echo '<ul id="breadcrumbs">';
+        $cat = get_the_category();
+        if( isset( $cat[0]->cat_ID ) ) $cat_id = $cat[0]->cat_ID;
+        $cat_list = array();
+        while( $cat_id != 0 ) {
+          $cat = get_category( $cat_id );
+          $cat_link = get_category_link( $cat_id );
+          array_unshift( $cat_list, '<li><a href="'.$cat_link.'">'.$cat->name.'</a></li>' );
+          $cat_id = $cat->parent;
+        }
+        echo $home;
+        foreach($cat_list as $value) {
+          echo $value;
+        }
+        the_title('<li>≫', '</li>');
+        echo '</ul>';
+        // 固定ページの場合
+        } else if ( is_page() ) {
+            echo '<ul id="breadcrumbs">';
+        echo $home;
+        the_title('<li>≫', '</li>');
+        echo '</ul>';
+        // 検索結果の場合
+        } else if ( is_search() ) {
+            echo '<ul id="breadcrumbs">';
+        echo $home;
+        echo '<li>「'.get_search_query().'」の検索結果</li>';
+        echo '</ul>';
+        // 404ページの場合
+        } else if ( is_404() ) {
+            echo '<ul id="breadcrumbs">';
+        echo $home;
+        echo '<li>ページが見つかりません</li>';
+        echo '</ul>';
+        }
     ?>
