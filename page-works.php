@@ -31,7 +31,7 @@
         ?>
         <div>
             <a href="<?php the_permalink(); ?>">
-                <div class="pageworks-list_image"><img src="<?php echo get_template_directory_uri(); ?>/images/ogp.jpg"></div>
+                <div class="pageworks-list_image"><?php the_post_thumbnail(); ?></div>
                 <div class="pageworks-list_content">
                     <div class="pageworks-list_content_title"><?php the_title(); ?></div>
                     <div class="pageworks-list_content_element"><?php the_category(' '); ?></div>
