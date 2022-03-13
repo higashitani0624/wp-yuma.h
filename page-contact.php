@@ -4,7 +4,7 @@
         <div class="contact-form">
             <h1 class="small-title">CONTACT</h1>
             <p class="contact-form_descript">お仕事のご依頼などお待ちしております。</p>
-            <?php echo do_shortcode('[mwform_formkey key="9"]'); ?>
+            <?php echo do_shortcode('[mwform_formkey key="73"]'); ?>
         </div>
     </div>
     <div class="linkhome">

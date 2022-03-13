@@ -2,7 +2,7 @@
 <div class="total-back"></div>
 <div class="top">
     <div class="top-main">
-        <h2 class="top-title">Student Engineer</h2>
+        <h2 class="top-title">Hiyokko Engineer</h2>
         <p class="top-subtitle">Yuma.H</p>
     </div>
 </div>
