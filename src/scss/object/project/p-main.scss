@@ -150,6 +150,31 @@
             grid-template-columns:repeat(4, 1fr);
             row-gap:30px;
             .workslist-content{
+                a{
+                    height:auto;
+                    .works-list_image{
+                        img{
+                            width: 100%;
+                            height: auto;
+                        }
+                    }
+                }
+                    .workslist-infomations{
+                        margin-top:10px;
+                        a{
+                            font-size: 14px;
+                            font-weight: bold;
+                        }
+                        ul{
+                            display: flex;
+                            opacity: .6;
+                            flex-wrap: wrap;
+                            li{
+                                font-size: 12px;
+                                color:$font-color-gray;
+                            }
+                        }
+                    }
                 .workslist-images{
                     img{
                         max-width:100%;

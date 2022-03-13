@@ -1061,6 +1061,29 @@ footer div {
   grid-template-columns: repeat(4, 1fr);
   row-gap: 30px;
 }
+.main #works .workslist .workslist-content a {
+  height: auto;
+}
+.main #works .workslist .workslist-content a .works-list_image img {
+  width: 100%;
+  height: auto;
+}
+.main #works .workslist .workslist-content .workslist-infomations {
+  margin-top: 10px;
+}
+.main #works .workslist .workslist-content .workslist-infomations a {
+  font-size: 14px;
+  font-weight: bold;
+}
+.main #works .workslist .workslist-content .workslist-infomations ul {
+  display: flex;
+  opacity: 0.6;
+  flex-wrap: wrap;
+}
+.main #works .workslist .workslist-content .workslist-infomations ul li {
+  font-size: 12px;
+  color: #8f8f8f;
+}
 .main #works .workslist .workslist-content .workslist-images img {
   max-width: 100%;
   height: auto;

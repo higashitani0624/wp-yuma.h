@@ -39,78 +39,30 @@
     <section id="works">
         <h2 class="small-title">WORKS</h2>
         <div class="workslist">
+        <?php
+            $paged = (int) get_query_var('paged');
+            $args = array(
+	            'posts_per_page' => 8,
+	            'paged' => $paged,
+	            'orderby' => 'post_date',
+	            'order' => 'DESC',
+	            'post_type' => 'post',
+	            'post_status' => 'publish'
+            );
+            $the_query = new WP_Query($args);
+            if ( $the_query->have_posts() ) :
+	            while ( $the_query->have_posts() ) : $the_query->the_post();
+        ?>
             <div class="workslist-content">
                 <a>
-                    <div class="workslist-images"><img src="<?php echo get_template_directory_uri(); ?>/images/works.png"></div>
+                    <div class="workslist-images"><?php the_post_thumbnail(); ?></div>
                     <div class="workslist-infomations">
-                        <h5 class="workslist-infomations__title">Portfolio</h5>
-                        <p class="workslist-infomations__sub">コーディング、開発</p>
+                        <h5 class="workslist-infomations__title"><?php the_title(); ?></h5>
+                        <p class="workslist-infomations__sub"><?php the_category(); ?></p>
                     </div>
                 </a>
             </div>
-            <div class="workslist-content">
-                <a>
-                    <div class="workslist-images"><img src="<?php echo get_template_directory_uri(); ?>/images/works.png"></div>
-                    <div class="workslist-infomations">
-                        <h5 class="workslist-infomations__title">Portfolio</h5>
-                        <p class="workslist-infomations__sub">コーディング、開発</p>
-                    </div>
-                </a>
-            </div>
-            <div class="workslist-content">
-                <a>
-                    <div class="workslist-images"><img src="<?php echo get_template_directory_uri(); ?>/images/works.png"></div>
-                    <div class="workslist-infomations">
-                        <h5 class="workslist-infomations__title">Portfolio</h5>
-                        <p class="workslist-infomations__sub">コーディング、開発</p>
-                    </div>
-                </a>
-            </div>
-            <div class="workslist-content">
-                <a>
-                    <div class="workslist-images"><img src="<?php echo get_template_directory_uri(); ?>/images/works.png"></div>
-                    <div class="workslist-infomations">
-                        <h5 class="workslist-infomations__title">Portfolio</h5>
-                        <p class="workslist-infomations__sub">コーディング、開発</p>
-                    </div>
-                </a>
-            </div>
-            <div class="workslist-content">
-                <a>
-                    <div class="workslist-images"><img src="<?php echo get_template_directory_uri(); ?>/images/works.png"></div>
-                    <div class="workslist-infomations">
-                        <h5 class="workslist-infomations__title">Portfolio</h5>
-                        <p class="workslist-infomations__sub">コーディング、開発</p>
-                    </div>
-                </a>
-            </div>
-            <div class="workslist-content">
-                <a>
-                    <div class="workslist-images"><img src="<?php echo get_template_directory_uri(); ?>/images/works.png"></div>
-                    <div class="workslist-infomations">
-                        <h5 class="workslist-infomations__title">Portfolio</h5>
-                        <p class="workslist-infomations__sub">コーディング、開発</p>
-                    </div>
-                </a>
-            </div>
-            <div class="workslist-content">
-                <a>
-                    <div class="workslist-images"><img src="<?php echo get_template_directory_uri(); ?>/images/works.png"></div>
-                    <div class="workslist-infomations">
-                        <h5 class="workslist-infomations__title">Portfolio</h5>
-                        <p class="workslist-infomations__sub">コーディング、開発</p>
-                    </div>
-                </a>
-            </div>
-            <div class="workslist-content">
-                <a>
-                    <div class="workslist-images"><img src="<?php echo get_template_directory_uri(); ?>/images/works.png"></div>
-                    <div class="workslist-infomations">
-                        <h5 class="workslist-infomations__title">Portfolio</h5>
-                        <p class="workslist-infomations__sub">コーディング、開発</p>
-                    </div>
-                </a>
-            </div>
+            <?php endwhile; endif; ?>
         </div>
         <div class="works-button">
         <a href="<?php echo home_url();?>/works">
